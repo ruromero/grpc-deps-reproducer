@@ -1,0 +1,17 @@
+package com.redhat.quarkus;
+
+option java_multiple_files = true;
+option java_package = "com.redhat.quarkus.reproducer.protobuf";
+
+message PlayerRequest {
+    required string id = 1;
+}
+
+message Player {
+    required string id = 1;
+    optional string username = 2;
+}
+
+service PlayerService {
+    rpc get (PlayerRequest) returns (Player);
+}
