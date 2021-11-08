@@ -24,6 +24,7 @@ class PlayerServiceImplTest {
 
     @Test
     void testGet() throws InterruptedException, ExecutionException, TimeoutException {
+        assertThat(svc).isNotNull();
         CompletableFuture<Player> message = new CompletableFuture<>();
         PlayerRequest req = PlayerRequest.newBuilder().setId("abc").build();
         svc.get(req).subscribe().with(p -> message.complete(p));
